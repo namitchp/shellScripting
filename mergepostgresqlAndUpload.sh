@@ -36,7 +36,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 echo "All backups compressed to $ZIP_PATH"
-
 # Upload to S3
 S3_KEY="connectx/all_backups_$TIMESTAMP.zip"
 aws s3 cp "$ZIP_PATH" "s3://$S3_BUCKET/$S3_KEY" --acl public-read
